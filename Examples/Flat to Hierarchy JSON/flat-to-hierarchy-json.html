@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flat to Hierarchial JSON data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script type="text/javascript">
+        let ganttChartData = [
+            {
+                "level": 1,
+                "objectType": "DPO",
+                "guid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "explanation": "Gantt example",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_project_tr.gif",
+                "iconTooltip": "Project",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "expanded": "X",
+                "childrenLoaded": "X",
+                "rowDtiName": "PD"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751ED7BCA73E3CA485FF78",
+                "explanation": "task 1 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CTA"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA856C2972F86D0",
+                "explanation": "task 2 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CTA"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751ED7BCA7402E96B3BF78",
+                "explanation": "Phase 1",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BA8952790951",
+                "explanation": "Phase 2",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BBF56146C953",
+                "explanation": "Phase 3",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }
+        ];
+
+        /*function ganttJsonStructure(jsonData) {
+            var roots = [];
+            var jsonStructure = {};
+            jsonData.forEach(function(jsonItem) {
+                jsonStructure[jsonItem.guid] = jsonItem;
+            });
+            Object.keys(jsonStructure).forEach(function(guid) {
+                var item = jsonStructure[guid];
+                if (item.level === 1) {
+                    roots.push(item);
+                } else if (item.parentGuid in jsonStructure) {
+                    var parent = jsonStructure[item.parentGuid];
+                    if (!('Children' in parent)) {
+                        parent.Children = [];
+                    }
+                    parent.Children.push(item);
+                }
+            });
+            return roots;
+        }*/
+
+        function flatToHierarchy(flat) {
+            var roots = []; // things without parent
+            // make them accessible by guid on this map
+            var all = {};
+            flat.forEach(function(item) {
+                all[item.guid] = item;
+            });
+
+            // console.log(all);
+            // connect childrens to its parent, and split roots apart
+            Object.keys(all).forEach(function (guid) {
+                var item = all[guid];
+                if (item.level === 1) {
+                    roots.push(item);
+                } else if (item.parentGuid in all) {
+                    var p = all[item.parentGuid];
+                    if (!('Children' in p)) {
+                        p.Children = [];
+                    }
+                    p.Children.push(item);
+                }
+            });
+            console.log(JSON.stringify(roots));
+            // done!
+            return roots;
+        }
+
+        let data = flatToHierarchy(ganttChartData);
+    </script>
+</body>
+</html>
