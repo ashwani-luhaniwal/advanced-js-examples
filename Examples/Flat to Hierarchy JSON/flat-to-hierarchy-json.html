@@ -79,7 +79,148 @@
             }
         ];
 
-        /*function ganttJsonStructure(jsonData) {
+        let ganttChartData2 = [
+            {
+                "level": 1,
+                "objectType": "DPO",
+                "guid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "explanation": "Gantt example",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_project_tr.gif",
+                "iconTooltip": "Project",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "expanded": "X",
+                "childrenLoaded": "X",
+                "rowDtiName": "PD"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751ED7BCA73E3CA485FF78",
+                "explanation": "task 1 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CTA"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA856C2972F86D0",
+                "explanation": "task 2 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CTA"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751ED7BCA7402E96B3BF78",
+                "explanation": "Phase 1",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BA8952790951",
+                "explanation": "Phase 2",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BBF56146C953",
+                "explanation": "Phase 3",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }, {
+                "level": 3,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA8BBF561470953",
+                "explanation": "Task 1 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "isLeaf": "X",
+                "rowDtiName": "TA"
+            }, {
+                "level": 3,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA8BBF561474953",
+                "explanation": "Task 2 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "isLeaf": "X",
+                "rowDtiName": "TA"
+            }, {
+                "level": 3,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA8BBF561478953",
+                "explanation": "Task 3 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "isLeaf": "X",
+                "rowDtiName": "TA"
+            }, {
+                "level": 3,
+                "objectType": "CTO",
+                "guid": "3863BB4422751EE7BCA8BBF56147C953",
+                "explanation": "checklist 1 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_checklist_tr.gif",
+                "iconTooltip": "Checklist",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "sortNumber": 10,
+                "rowDtiName": "CL"
+            }, {
+                "level": 4,
+                "objectType": "ITO",
+                "guid": "3863BB4422751EE7BCA8BBF561480953",
+                "explanation": "checklist item 1.1",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56147C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_checklistitem_tr.gif",
+                "iconTooltip": "Checklist Item",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CI"
+            }, {
+                "level": 4,
+                "objectType": "ITO",
+                "guid": "3863BB4422751EE7BCA8BBF56148C953",
+                "explanation": "checklist item 1.2",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56147C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_checklistitem_tr.gif",
+                "iconTooltip": "Checklist Item",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CI"
+            }
+        ];
+
+        function ganttJsonStructure(jsonData) {
             var roots = [];
             var jsonStructure = {};
             jsonData.forEach(function(jsonItem) {
@@ -98,7 +239,7 @@
                 }
             });
             return roots;
-        }*/
+        }
 
         function flatToHierarchy(flat) {
             var roots = []; // things without parent
@@ -122,12 +263,15 @@
                     p.Children.push(item);
                 }
             });
-            console.log(JSON.stringify(roots));
+            // console.log(JSON.stringify(roots));
             // done!
+            // console.log(roots);
             return roots;
         }
 
-        let data = flatToHierarchy(ganttChartData);
+        let data = ganttJsonStructure(ganttChartData2);
+        document.write(JSON.stringify(data));
+        console.log(data);
     </script>
 </body>
 </html>
