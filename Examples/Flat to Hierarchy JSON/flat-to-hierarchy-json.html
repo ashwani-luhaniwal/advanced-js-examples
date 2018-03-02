@@ -79,6 +79,117 @@
             }
         ];
 
+        let ganttChartData1 = [
+            {
+                "level": 1,
+                "objectType": "DPO",
+                "guid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "explanation": "Gantt example",
+                "iconSource": "/sap/public/ppm/pro/icon_project_tr.gif",
+                "iconTooltip": "Project",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "editable": "FALSE",
+                "potentialParent": "TRUE",
+                "collapsed": "FALSE",
+                "childrenLoaded": "TRUE",
+                "selected": "TRUE",
+                "scheduleConflict": "FALSE",
+                "cutCopySelected": "FALSE",
+                "menuId": "MENU_CREATE"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751ED7BCA73E3CA485FF78",
+                "explanation": "task 1 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "editable": "FALSE",
+                "potentialParent": "TRUE",
+                "collapsed": "TRUE",
+                "childrenLoaded": "FALSE",
+                "selected": "FALSE",
+                "scheduleConflict": "FALSE",
+                "cutCopySelected": "FALSE",
+                "menuId": "NIL"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA856C2972F86D0",
+                "explanation": "task 2 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "editable": "FALSE",
+                "potentialParent": "TRUE",
+                "collapsed": "TRUE",
+                "childrenLoaded": "FALSE",
+                "selected": "FALSE",
+                "scheduleConflict": "FALSE",
+                "cutCopySelected": "FALSE",
+                "menuId": "NIL"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751ED7BCA7402E96B3BF78",
+                "explanation": "Phase 1",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/public/ppm/pro/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "editable": "FALSE",
+                "potentialParent": "TRUE",
+                "collapsed": "TRUE",
+                "childrenLoaded": "FALSE",
+                "selected": "FALSE",
+                "scheduleConflict": "FALSE",
+                "cutCopySelected": "FALSE",
+                "menuId": "NIL"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BA8952790951",
+                "explanation": "Phase 2",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/public/ppm/pro/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "editable": "FALSE",
+                "potentialParent": "TRUE",
+                "collapsed": "TRUE",
+                "childrenLoaded": "FALSE",
+                "selected": "FALSE",
+                "scheduleConflict": "FALSE",
+                "cutCopySelected": "FALSE",
+                "menuId": "NIL"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BBF56146C953",
+                "explanation": "Phase 3",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/public/ppm/pro/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "editable": "FALSE",
+                "potentialParent": "TRUE",
+                "collapsed": "TRUE",
+                "childrenLoaded": "FALSE",
+                "selected": "FALSE",
+                "scheduleConflict": "FALSE",
+                "cutCopySelected": "FALSE",
+                "menuId": "NIL"
+            }
+        ];
+
         let ganttChartData2 = [
             {
                 "level": 1,
@@ -220,6 +331,129 @@
             }
         ];
 
+        let level2Json = [
+        {
+                "level": 1,
+                "objectType": "DPO",
+                "guid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "explanation": "Gantt example",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_project_tr.gif",
+                "iconTooltip": "Project",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "expanded": "X",
+                "childrenLoaded": "X",
+                "rowDtiName": "PD"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751ED7BCA73E3CA485FF78",
+                "explanation": "task 1 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CTA"
+            }, {
+                "level": 2,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA856C2972F86D0",
+                "explanation": "task 2 below project definition",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "CTA"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751ED7BCA7402E96B3BF78",
+                "explanation": "Phase 1",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BA8952790951",
+                "explanation": "Phase 2",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }, {
+                "level": 2,
+                "objectType": "PPO",
+                "guid": "3863BB4422751EE7BCA8BBF56146C953",
+                "explanation": "Phase 3",
+                "parentGuid": "3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_phase_tr.gif",
+                "iconTooltip": "Phase",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "rowDtiName": "PH"
+            }
+        ];
+
+        let level3Json = [
+        {
+                "level": 3,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA8BBF561470953",
+                "explanation": "Task 1 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "isLeaf": "X",
+                "rowDtiName": "TA"
+            }, {
+                "level": 3,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA8BBF561474953",
+                "explanation": "Task 2 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "isLeaf": "X",
+                "rowDtiName": "TA"
+            }, {
+                "level": 3,
+                "objectType": "TTO",
+                "guid": "3863BB4422751EE7BCA8BBF561478953",
+                "explanation": "Task 3 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
+                "iconTooltip": "Task",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "isLeaf": "X",
+                "rowDtiName": "TA"
+            }, {
+                "level": 3,
+                "objectType": "CTO",
+                "guid": "3863BB4422751EE7BCA8BBF56147C953",
+                "explanation": "checklist 1 below phase 3",
+                "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
+                "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_checklist_tr.gif",
+                "iconTooltip": "Checklist",
+                "statusIconSource": "/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip": "No Value Set",
+                "sortNumber": 10,
+                "rowDtiName": "CL"
+            }
+        ];
+
         function ganttJsonStructure(jsonData) {
             var roots = [];
             var jsonStructure = {};
@@ -232,16 +466,36 @@
                     roots.push(item);
                 } else if (item.parentGuid in jsonStructure) {
                     var parent = jsonStructure[item.parentGuid];
-                    if (!('Children' in parent)) {
-                        parent.Children = [];
+                    // console.log(item.parentGuid);
+                    if (!('children' in parent)) {
+                        parent.children = [];
                     }
-                    parent.Children.push(item);
+                    parent.children.push(item);
                 }
             });
             return roots;
         }
 
-        function flatToHierarchy(flat) {
+        function expandBranch(originalJson, childJson, branchGuid) {
+            var newJson = {};
+            originalJson.forEach(function(key) {
+                // console.log(key.children);
+                key.children.forEach(function(k) {
+                    console.log(branchGuid);
+                    if (branchGuid == k.parentGuid) {
+                        var parent = newJson[k.parentGuid];
+                        console.log(parent);
+                        if (!('children' in parent)) {
+                            parent.children = [];
+                        }
+                        parent.children.push(k);
+                    }
+                });
+            });
+            // console.log(newJson);
+        }
+
+        /*function flatToHierarchy(flat) {
             var roots = []; // things without parent
             // make them accessible by guid on this map
             var all = {};
@@ -267,11 +521,13 @@
             // done!
             // console.log(roots);
             return roots;
-        }
+        }*/
 
-        let data = ganttJsonStructure(ganttChartData2);
-        document.write(JSON.stringify(data));
+        let data = ganttJsonStructure(level2Json);
+        let data1 = expandBranch(data, level3Json, '3863BB4422751EE7BCA8BBF56146C953')
+        // document.write(JSON.stringify(data));
         console.log(data);
+        // console.log(data1);
     </script>
 </body>
 </html>
