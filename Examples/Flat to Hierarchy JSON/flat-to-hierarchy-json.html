@@ -460,6 +460,7 @@
             jsonData.forEach(function(jsonItem) {
                 jsonStructure[jsonItem.guid] = jsonItem;
             });
+            // console.log(jsonStructure);
             Object.keys(jsonStructure).forEach(function(guid) {
                 var item = jsonStructure[guid];
                 if (item.level === 1) {
@@ -478,21 +479,19 @@
 
         function expandBranch(originalJson, childJson, branchGuid) {
             var newJson = {};
-            originalJson.forEach(function(key) {
-                // console.log(key.children);
-                key.children.forEach(function(k) {
-                    console.log(branchGuid);
-                    if (branchGuid == k.parentGuid) {
-                        var parent = newJson[k.parentGuid];
-                        console.log(parent);
-                        if (!('children' in parent)) {
-                            parent.children = [];
-                        }
-                        parent.children.push(k);
-                    }
-                });
+            var parentGuid = {};
+            childJson.forEach(function(childItem) {
+                parentGuid[childItem.parentGuid] = childItem;
             });
-            // console.log(newJson);
+            console.log(parentGuid);
+            Object.keys(parentGuid).forEach(function(k) {
+                console.log(k);
+                if (k == branchGuid) {
+                    console.log('matched');
+                    console.log(childJson);
+                    console.log(originalJson[0].children);
+                }
+            });
         }
 
         /*function flatToHierarchy(flat) {
@@ -526,7 +525,7 @@
         let data = ganttJsonStructure(level2Json);
         let data1 = expandBranch(data, level3Json, '3863BB4422751EE7BCA8BBF56146C953')
         // document.write(JSON.stringify(data));
-        console.log(data);
+        // console.log(data);
         // console.log(data1);
     </script>
 </body>
