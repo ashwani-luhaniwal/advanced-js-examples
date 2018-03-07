@@ -483,13 +483,25 @@
             childJson.forEach(function(childItem) {
                 parentGuid[childItem.parentGuid] = childItem;
             });
-            console.log(parentGuid);
-            Object.keys(parentGuid).forEach(function(k) {
+            // console.log(parentGuid);
+            /*Object.keys(parentGuid).forEach(function(k) {
                 console.log(k);
                 if (k == branchGuid) {
-                    console.log('matched');
-                    console.log(childJson);
-                    console.log(originalJson[0].children);
+                    // console.log(childJson);
+                    // console.log(originalJson[0].children);
+                }
+            });*/
+            let childParentGuid = Object.keys(parentGuid)[0];
+            // console.log(Object.keys(parentGuid)[0]);
+            // console.log(originalJson[0].children);
+            let arr = originalJson[0].children;
+            arr.map(function(e) {
+                console.log(e);
+            });
+            Object.keys(originalJson[0]).forEach(function(n) {
+                // console.log(n);
+                if (childParentGuid == branchGuid) {
+                    // console.log(n);
                 }
             });
         }
