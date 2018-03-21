@@ -418,7 +418,7 @@
             }, {
                 "level": 3,
                 "objectType": "TTO",
-                "guid": "3863BB4422751EE7BCA8BBF561474953",
+                "guid": "3863BB4422751EE7BCA8BBF561474954",
                 "explanation": "Task 2 below phase 3",
                 "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
                 "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
@@ -430,7 +430,7 @@
             }, {
                 "level": 3,
                 "objectType": "TTO",
-                "guid": "3863BB4422751EE7BCA8BBF561478953",
+                "guid": "3863BB4422751EE7BCA8BBF561478955",
                 "explanation": "Task 3 below phase 3",
                 "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
                 "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_task_tr.gif",
@@ -442,7 +442,7 @@
             }, {
                 "level": 3,
                 "objectType": "CTO",
-                "guid": "3863BB4422751EE7BCA8BBF56147C953",
+                "guid": "3863BB4422751EE7BCA8BBF56147C956",
                 "explanation": "checklist 1 below phase 3",
                 "parentGuid": "3863BB4422751EE7BCA8BBF56146C953",
                 "iconSource": "/sap/bc/WebDynpro/sap/public/cprojects/icon_checklist_tr.gif",
@@ -477,65 +477,37 @@
             return roots;
         }
 
-        function expandBranch(originalJson, childJson, branchGuid) {
-            var newJson = {};
-            var parentGuid = {};
-            childJson.forEach(function(childItem) {
-                parentGuid[childItem.parentGuid] = childItem;
+        function ganttTreeStructure(ganttData) {
+            var root = [];
+            var ganttTree = {};
+            ganttData.forEach(function(ganttItem) {
+                ganttTree[ganttItem.guid] = ganttItem;
             });
-            // console.log(parentGuid);
-            /*Object.keys(parentGuid).forEach(function(k) {
-                console.log(k);
-                if (k == branchGuid) {
-                    // console.log(childJson);
-                    // console.log(originalJson[0].children);
-                }
-            });*/
-            let childParentGuid = Object.keys(parentGuid)[0];
-            // console.log(Object.keys(parentGuid)[0]);
-            // console.log(originalJson[0].children);
-            let arr = originalJson[0].children;
-            arr.map(function(e) {
-                console.log(e);
-            });
-            Object.keys(originalJson[0]).forEach(function(n) {
-                // console.log(n);
-                if (childParentGuid == branchGuid) {
-                    // console.log(n);
+            Object.keys(ganttTree).forEach(function(guid) {
+                var item = ganttTree[guid];
+                if (item.level === 1) {
+                    root.push(item);
+                } else if (item.parentGuid in ganttTree) {
+                    var parent = ganttTree[item.parentGuid];
+                    if (!('children' in parent)) {
+                        parent.children = [];
+                    }
+                    parent.children.push(item);
                 }
             });
+            return root;
         }
 
-        /*function flatToHierarchy(flat) {
-            var roots = []; // things without parent
-            // make them accessible by guid on this map
-            var all = {};
-            flat.forEach(function(item) {
-                all[item.guid] = item;
-            });
+        function expandChild(mainTreeStructure, expandedChildStructure) {
+            for (var i = 0; i < expandedChildStructure.length; i++) {
+                mainTreeStructure.push(expandedChildStructure[i]);
+            }
+            return ganttTreeStructure(mainTreeStructure);
+        }
 
-            // console.log(all);
-            // connect childrens to its parent, and split roots apart
-            Object.keys(all).forEach(function (guid) {
-                var item = all[guid];
-                if (item.level === 1) {
-                    roots.push(item);
-                } else if (item.parentGuid in all) {
-                    var p = all[item.parentGuid];
-                    if (!('Children' in p)) {
-                        p.Children = [];
-                    }
-                    p.Children.push(item);
-                }
-            });
-            // console.log(JSON.stringify(roots));
-            // done!
-            // console.log(roots);
-            return roots;
-        }*/
-
-        let data = ganttJsonStructure(level2Json);
-        let data1 = expandBranch(data, level3Json, '3863BB4422751EE7BCA8BBF56146C953')
+        // let data = ganttJsonStructure(level2Json);
+        // let data1 = expandBranch(data, level3Json, '3863BB4422751EE7BCA8BBF56146C953')
+        let data2 = expandChild(level2Json, level3Json);
         // document.write(JSON.stringify(data));
         // console.log(data);
         // console.log(data1);
