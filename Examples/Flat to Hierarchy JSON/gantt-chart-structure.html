@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gantt Chart Structure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script type="text/javascript">
+        let initialData = [  
+            {  
+                "level":1,
+                "objectType":"DPO",
+                "guid":"3863BB4422751ED7BCA73DC9ABF81F76",
+                "explanation":"Gantt example",
+                "iconSource":"/sap/public/ppm/pro/icon_project_tr.gif",
+                "iconTooltip":"Project",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"FALSE",
+                "childrenLoaded":"TRUE",
+                "selected":"TRUE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"MENU_CREATE"
+            },
+            {  
+                "level":2,
+                "objectType":"TTO",
+                "guid":"3863BB4422751ED7BCA73E3CA485FF78",
+                "explanation":"task 1 below project definition",
+                "parentGuid":"3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":2,
+                "objectType":"TTO",
+                "guid":"3863BB4422751EE7BCA856C2972F86D0",
+                "explanation":"task 2 below project definition",
+                "parentGuid":"3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":2,
+                "objectType":"TTO",
+                "guid":"40F2E9AFC5011ED887A7E85D891C40F0",
+                "explanation":"task3",
+                "parentGuid":"3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"FALSE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":2,
+                "objectType":"PPO",
+                "guid":"3863BB4422751ED7BCA7402E96B3BF78",
+                "explanation":"Phase 1",
+                "parentGuid":"3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource":"/sap/public/ppm/pro/icon_phase_tr.gif",
+                "iconTooltip":"Phase",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":2,
+                "objectType":"PPO",
+                "guid":"3863BB4422751EE7BCA8BA8952790951",
+                "explanation":"Phase 2",
+                "parentGuid":"3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource":"/sap/public/ppm/pro/icon_phase_tr.gif",
+                "iconTooltip":"Phase",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":2,
+                "objectType":"PPO",
+                "guid":"3863BB4422751EE7BCA8BBF56146C953",
+                "explanation":"Phase 3",
+                "parentGuid":"3863BB4422751ED7BCA73DC9ABF81F76",
+                "iconSource":"/sap/public/ppm/pro/icon_phase_tr.gif",
+                "iconTooltip":"Phase",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            }
+        ];
+
+        let level3Data = [
+        {  
+                "level":3,
+                "objectType":"TTO",
+                "guid":"3863BB4422751ED7BCA740E015D7FF79",
+                "explanation":"Task 1 below phase 1",
+                "parentGuid":"3863BB4422751ED7BCA7402E96B3BF78",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"FALSE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":3,
+                "objectType":"TTO",
+                "guid":"3863BB4422751ED7BCA741C9C035BF79",
+                "explanation":"Task 2 below phase 1",
+                "parentGuid":"3863BB4422751ED7BCA7402E96B3BF78",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDG.gif",
+                "statusIconTooltip":"Cost OK: Manually Set",
+                "editable":"FALSE",
+                "potentialParent":"FALSE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":3,
+                "objectType":"TTO",
+                "guid":"3863BB4422751ED7BCA742CBA663FF7A",
+                "explanation":"Task 3 below phase 1",
+                "parentGuid":"3863BB4422751ED7BCA7402E96B3BF78",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"FALSE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":3,
+                "objectType":"TTO",
+                "guid":"42F2E9AFC4EF1ED7BDA322900A4E6CA9",
+                "explanation":"Task 4 below Phase 1",
+                "parentGuid":"3863BB4422751ED7BCA7402E96B3BF78",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"FALSE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":3,
+                "objectType":"TTO",
+                "guid":"42F2E9AFC3DF1ED7BDA4A94406609079",
+                "explanation":"Task 5 below phase 1",
+                "parentGuid":"3863BB4422751ED7BCA7402E96B3BF78",
+                "iconSource":"/sap/public/ppm/pro/icon_task_tr.gif",
+                "iconTooltip":"Task",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"FALSE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":3,
+                "objectType":"CTO",
+                "guid":"3863BB4422751ED7BCA7442509DDDFA6",
+                "explanation":"checklist 1 below phase 1",
+                "parentGuid":"3863BB4422751ED7BCA7402E96B3BF78",
+                "iconSource":"/sap/public/ppm/pro/icon_checklist_tr.gif",
+                "iconTooltip":"Checklist",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            }
+        ];
+
+        let level4Data = [
+        {  
+                "level":4,
+                "objectType":"ITO",
+                "guid":"3863BB4422751ED7BCA744EEB5F69FEA",
+                "explanation":"checklist item 1.1",
+                "parentGuid":"3863BB4422751ED7BCA7442509DDDFA6",
+                "iconSource":"/sap/public/ppm/pro/icon_checklistitem_tr.gif",
+                "iconTooltip":"Checklist Item",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            },
+            {  
+                "level":4,
+                "objectType":"ITO",
+                "guid":"3863BB4422751ED7BCA74A86F12ABFED",
+                "explanation":"checklist item 1.2",
+                "parentGuid":"3863BB4422751ED7BCA7442509DDDFA6",
+                "iconSource":"/sap/public/ppm/pro/icon_checklistitem_tr.gif",
+                "iconTooltip":"Checklist Item",
+                "statusIconSource":"/sap/public/bc/icons/s_S_LEDI.gif",
+                "statusIconTooltip":"No Value Set",
+                "editable":"FALSE",
+                "potentialParent":"TRUE",
+                "collapsed":"TRUE",
+                "childrenLoaded":"FALSE",
+                "selected":"FALSE",
+                "scheduleConflict":"FALSE",
+                "cutCopySelected":"FALSE",
+                "menuId":"NIL"
+            }
+        ];
+
+        function ganttTreeStructure(ganttData) {
+            var root = [];
+            var ganttTree = {};
+            ganttData.forEach(function(ganttItem) {
+                ganttTree[ganttItem.guid] = ganttItem;
+            });
+            Object.keys(ganttTree).forEach(function(guid) {
+                var item = ganttTree[guid];
+                if (item.level === 1) {
+                    root.push(item);
+                } else if (item.parentGuid in ganttTree) {
+                    var parent = ganttTree[item.parentGuid];
+                    if (!('children' in parent)) {
+                        parent.children = [];
+                    }
+                    parent.children.push(item);
+                }
+            });
+            return root;
+        }
+
+        function expandChild(mainTreeStructure, expandedChildStructure) {
+            for (var i = 0; i < expandedChildStructure.length; i++) {
+                mainTreeStructure.push(expandedChildStructure[i]);
+            }
+            return ganttTreeStructure(mainTreeStructure);
+        }
+
+        var masterTree = ganttTreeStructure(initialData);
+
+        function expand(masterTree, levelData) {
+            if (masterTree[0].children) { 
+                for (var i = 0; i < masterTree[0].children.length; i++) {
+                    if (masterTree[0].children[i].children) {
+                        for(var key in masterTree[0].children[i].children) {
+                            // console.log(masterTree[i].children[key].guid);
+                            if (masterTree[0].children[i].children[key].guid == levelData[0].parentGuid) {
+                                if (!('children' in masterTree[0].children[i].children[key])) {
+                                    masterTree[0].children[i].children[key].children = [];
+                                }
+                                for (var childElement in levelData) {
+                                    masterTree[0].children[i].children[key].children.push(levelData[childElement]);
+                                }
+                            }
+                        }
+                    }
+                }      
+                for(var key in masterTree[0].children) {
+                    // console.log(masterTree[i].children[key].guid);
+                    if (masterTree[0].children[key].guid == levelData[0].parentGuid) {
+                        if (!('children' in masterTree[0].children[key])) {
+                            masterTree[0].children[key].children = [];
+                        }
+                        for (var childElement in levelData) {
+                            masterTree[0].children[key].children.push(levelData[childElement]);
+                        }
+                    }
+                }
+            }
+            return masterTree;
+        }
+        
+        let data = expand(masterTree, level3Data);
+        let data1 = expand(data, level4Data);
+        console.log(data1);
+
+    </script>
+</body>
+</html>
