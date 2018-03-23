@@ -301,16 +301,15 @@
             }
         ];
 
-        function ganttTreeStructure(ganttData) {
-            var root = [];
-            var ganttTree = {};
+        function _getGanttTree(ganttData) {
+            var ganttTreeStructure = [], ganttTree = {};
             ganttData.forEach(function(ganttItem) {
                 ganttTree[ganttItem.guid] = ganttItem;
             });
             Object.keys(ganttTree).forEach(function(guid) {
                 var item = ganttTree[guid];
                 if (item.level === 1) {
-                    root.push(item);
+                    ganttTreeStructure.push(item);
                 } else if (item.parentGuid in ganttTree) {
                     var parent = ganttTree[item.parentGuid];
                     if (!('children' in parent)) {
@@ -319,7 +318,7 @@
                     parent.children.push(item);
                 }
             });
-            return root;
+            return ganttTreeStructure;
         }
 
         function expandChild(mainTreeStructure, expandedChildStructure) {
