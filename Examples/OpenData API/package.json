@@ -1,0 +1,18 @@
+{
+  "name": "opendata-endpoints",
+  "version": "1.0.0",
+  "description": "Express router app with opendata endpoint scenarios",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Ashwani K Luhaniwal",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http-server": "^0.11.1",
+    "mongodb": "^3.0.5",
+    "nodemon": "^1.17.3",
+    "request": "^2.85.0"
+  }
+}
