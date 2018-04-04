@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+	<title>Web Component Example</title>
+	<link rel="stylesheet" type="text/css"
+	      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+
+	<script src="open-api-component.js" async defer></script>
+</head>
+<body onload="load()">
+<div class="container">
+	<open-api-component id="component"></open-api-component>
+</div>
+<script>
+	async function load(){
+		//notifies when the component has been defined in the DOM
+		await window.customElements.whenDefined('open-api-component')
+
+		//setting the attribute will trigger the changedAttributeCallback thus updating the element in lifecycle
+		const component = document.getElementById('component')
+		component.setAttribute('location','my-location')
+	}
+</script>
+
+</body>
+</html>
