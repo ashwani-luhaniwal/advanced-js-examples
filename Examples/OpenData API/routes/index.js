@@ -45,7 +45,7 @@ router.get('/wind-speed', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Current Wind Speed at ' + result.station.name + ' is: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        res.send('Wind speed: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
     });
 });
 
@@ -58,7 +58,7 @@ router.get('/wind-direction', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Current Wind Direction at ' + result.station.name + ' is: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        res.send('Wind direction: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
     });
 });
 
@@ -71,7 +71,7 @@ router.get('/sunshine-time', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Current Sunshine time at ' + result.station.name + ' is: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        res.send('Sunshine time: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
     });
 });
 
@@ -84,7 +84,7 @@ router.get('/weather', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Current Weather at ' + result.station.name + ' is: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        res.send('Weather: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
     });
 });
 
@@ -97,7 +97,7 @@ router.get('/humidity', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Humidity level at ' + result.station.name + ' is: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        res.send('Humidity: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
     });
 });
 
@@ -110,7 +110,7 @@ router.get('/air-temperature', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Air Temperature at ' + result.station.name + ' is: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        res.send('Air temperature: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
     });
 });
 
