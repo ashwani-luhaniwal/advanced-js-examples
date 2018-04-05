@@ -1,8 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     request = require('request'),
-    path = require('path'),
-    db = require('../mongo');
+    path = require('path');
 
 /**
  * fetching air temperature, wind and weather data from opendata api end-points
@@ -33,7 +32,7 @@ function openDataApiCall(parameter, station, period, callback) {
  * Default route for the homepage
  */
 router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/index1.html'));
 });
 
 /**
@@ -45,7 +44,11 @@ router.get('/wind-speed', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Wind speed: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        if (result.value) {
+            res.send('<strong><span>Wind speed: </span></strong><span>' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit + '</span>');
+        } else {
+            res.send('<strong><span>Wind speed: </span></strong><span>NA</span>');
+        }
     });
 });
 
@@ -58,7 +61,11 @@ router.get('/wind-direction', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Wind direction: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        if (result.value) {
+            res.send('<strong><span>Wind direction: </span></strong><span>' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit + '</span>');
+        } else {
+            res.send('<strong><span>Wind direction: </span></strong><span>NA</span>');
+        }
     });
 });
 
@@ -71,7 +78,11 @@ router.get('/sunshine-time', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Sunshine time: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        if (result.value) {
+            res.send('<strong><span>Sunshine time: </span></strong><span>' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit + '</span>');
+        } else {
+            res.send('<strong><span>Sunshine time: </span></strong><span>NA</span>');
+        }
     });
 });
 
@@ -84,7 +95,11 @@ router.get('/weather', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Weather: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        if (result.value) {
+            res.send('<strong><span>Weather: </span></strong><span>' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit + '</span>');
+        } else {
+            res.send('<strong><span>Weather: </span></strong><span>NA</span>');
+        }
     });
 });
 
@@ -97,7 +112,11 @@ router.get('/humidity', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Humidity: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        if (result.value) {
+            res.send('<strong><span>Humidity: </span></strong><span>' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit + '</span>');
+        } else {
+            res.send('<strong><span>Humidity: </span></strong><span>NA</span>');
+        }
     });
 });
 
@@ -110,7 +129,11 @@ router.get('/air-temperature', (req, res, next) => {
             console.log(err);
             return res.status(500);
         }
-        res.send('Air temperature: ' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit);
+        if (result.value) {
+            res.send('<strong><span>Air temperature: </span></strong><span>' + result.value[result.value.length - 1].value + ' ' + result.parameter.unit + '</span>');
+        } else {
+            res.send('<strong><span>Air temperature: </span></strong><span>NA</span>');
+        }
     });
 });
 
