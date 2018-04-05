@@ -11,44 +11,20 @@
 					@import url(https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css);
 					:host{
 						display:block;	
-						
-					}
+                    }
+                    .open-api-measurement {
+                        font-size: 0.88rem;
+                    }
 				</style>
 				<div class="container">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h3>
-                                <span id="wind-speed">...</span>
-                            </h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                <span id="wind-direction">...</span>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>
-                                <span id="sunshine-time">...</span>
-                            </h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                <span id="weather">...</span>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>
-                                <span id="humidity">...</span>
-                            </h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                <span id="air-temperature">...</span>
-                            </h3>
+                        <div class="col-md-12">
+                            <div class="open-api-measurement" id="wind-speed"></div>
+                            <div class="open-api-measurement" id="wind-direction"></div>
+                            <div class="open-api-measurement" id="sunshine-time"></div>
+                            <div class="open-api-measurement" id="weather"></div>
+                            <div class="open-api-measurement" id="humidity"></div>
+                            <div class="open-api-measurement" id="air-temperature"></div>
                         </div>
                     </div>
 				</div>
@@ -61,9 +37,9 @@
 		}
 		attributeChangedCallback(name,old,value){
 			//an attribute defined in observedAttributes static has changed
-			console.log({name,old,value})
+            console.log({name,old,value})
 			switch(name){
-				case 'location':
+				case "location":
 					if(value) this.update(value)
 					break
 			}
@@ -75,13 +51,12 @@
 		}
 
 		async update(location){
-            const windSpeed = await fetch('http://cocopuff.org/open-api/wind-speed')
-            const windDirection = await fetch('http://cocopuff.org/open-api/wind-direction')
-            const sunshineTime = await fetch('http://cocopuff.org/open-api/sunshine-time')
-            const currentWeather = await fetch('http://cocopuff.org/open-api/weather')
-            const humidityLevel = await fetch('http://cocopuff.org/open-api/humidity')
-            const airTemperature = await fetch('http://cocopuff.org/open-api/air-temperature')
-			// const text = await windSpeed.text()
+            const windSpeed = await fetch(location + '/open-api/wind-speed')
+            const windDirection = await fetch(location + '/open-api/wind-direction')
+            const sunshineTime = await fetch(location + '/open-api/sunshine-time')
+            const currentWeather = await fetch(location + '/open-api/weather')
+            const humidityLevel = await fetch(location + '/open-api/humidity')
+            const airTemperature = await fetch(location + '/open-api/air-temperature')
             this.$('#wind-speed').innerHTML = await windSpeed.text()
             this.$('#wind-direction').innerHTML = await windDirection.text()
             this.$('#sunshine-time').innerHTML = await sunshineTime.text()
