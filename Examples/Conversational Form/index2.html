@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../../node_modules/conversational-form/dist/conversational-form.css"/>
+  <style>
+    form{
+      height: 50vh;
+      }
+    body{
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <form id="form">
+      <fieldset>
+          <label for="name">What's your name?</label>
+          <input required cf-questions="Hi there! What's your name? 😊" type="text" class="form-control" name="name" id="name">
+        </fieldset>
+    <fieldset>
+      <label for="occupation">Occupation</label>
+      <div class="radio">
+        <label>
+          <input 
+            cf-questions="You can apply to this university and many others through Mate. We will guide you through the process, from tests to VISA application. If you save your information you can apply to multiple universities with just a few clicks. It is complete free. Or apply on [university website link]" 
+            type="radio" 
+            name="occupation" 
+            id="occupation-1" 
+            value="developer">
+          Developer
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input 
+            type="radio" 
+            name="occupation" 
+            id="occupation-2" 
+            value="designer">
+          Designer
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input 
+            type="radio" 
+            name="occupation" 
+            id="occupation-3" 
+            value="curious-mind">
+          Curious mind
+        </label>
+      </div>
+    </fieldset>
+  </form>
+  
+  <script type="text/javascript" src="../../node_modules/conversational-form/dist/conversational-form.js" crossorigin></script>
+  <!-- <script type="text/javascript" src="https://cf-4053.kxcdn.com/conversational-form/0.9.6/conversational-form.min.js" crossorigin></script> -->
+  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@0.9.80/dist/conversational-form.min.js" crossorigin></script>-->
+  <script type="text/javascript">
+    const mateForm = new cf.ConversationalForm({
+      formEl: document.getElementById('form'),
+      isDevelopment: true,
+      robotImage: 'mate-m@3x.png',
+      submitCallback: function() {
+        alert('You have submitted your form');
+      }
+    });
+  </script>
+</body>
+</html>
